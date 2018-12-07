@@ -1,4 +1,6 @@
-Which of the following is correct about features of JavaScript?
+##Questions and Answers
+
+Q 1 - Which of the following is correct about features of JavaScript?
 
 A - JavaScript is a lightweight, interpreted programming language.
 
@@ -137,3 +139,113 @@ D - unshift()
 Answer : B
 Explanation
 sort() − Sorts the elements of an array.
+
+
+
+Q 11 - Inside which HTML element do we put the JavaScript?
+
+ A - <javascript>
+ B - <script>    
+ C - <scripting>
+ D - <js>
+
+ Answer : B
+
+
+Q 12 - What is the correct JavaScript syntax to change the content of the HTML element below?
+
+<p id="demo">This is a demonstration.</p>
+
+ A - document.getElement("p").innerHTML = "Hello World!";
+
+ B - document.getElementById("demo").innerHTML = "Hello World!";
+
+ C - document.getElementByName("p").innerHTML = "Hello World!";
+
+ D - #demo.innerHTML = "Hello World!";
+
+ Answer : B
+
+Q 13 - What is the correct syntax for referring to an external script called "xxx.js"?
+
+ A - <script name="xxx.js">
+
+ B - <script src="xxx.js">
+
+ C - <script href="xxx.js">
+
+ Answer : B
+
+Q 14 - The external JavaScript file must contain the <script> tag.
+
+ A - False
+
+ B - True
+
+ Answer : A
+
+Q 15 - How do you write "Hello World" in an alert box?
+
+ A - msg("Hello World");
+
+ B - alertBox("Hello World");
+
+ C - alert("Hello World");
+
+ D - msgBox("Hello World");
+
+ Answer : C
+
+Q 16 - How do you create a function in JavaScript?
+
+ A - function = myFunction()
+
+ B - function myFunction()
+
+ C - function:myFunction()
+
+ Answer : B
+
+ Q 17 - How do you call a function named "myFunction"?
+
+ A - call myFunction()
+
+ B - myFunction()
+
+ C - call function myFunction()
+
+ Answer : B
+
+Q 18 - How to write an IF statement in JavaScript?
+
+ A - if i = 5
+
+ B - if i == 5 then
+
+ C - if i = 5 then
+
+ D - if (i == 5)
+
+ Answer : D
+
+Q 19 - How to write an IF statement for executing some code if "i" is NOT equal to 5?
+
+ A - if i =! 5 then
+
+ B - if i <> 5
+
+ C - if (i != 5)
+
+ D - if (i <> 5)
+
+ Answer : C
+
+Q 20 - How does a WHILE loop start?
+
+ A - while (i <= 10; i++)
+
+ B - while (i <= 10)
+
+ C - while i = 1 to 10
+
+ Answer : B
