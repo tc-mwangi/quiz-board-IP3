@@ -33,3 +33,10 @@ Light and dark themes
 pop-up congratulations message
 
 ## BDD
+User log in.
+User verification
+Gather user input
+Display results(percentage and marks out of total)
+# Optional
+checking answers
+trying again

@@ -1,5 +1,4 @@
-##Questions and Answers
-
+###Main Q and A
 Q 1 - Which of the following is correct about features of JavaScript?
 
 A - JavaScript is a lightweight, interpreted programming language.
@@ -140,7 +139,7 @@ Answer : B
 Explanation
 sort() − Sorts the elements of an array.
 
-
+###Switch Q and A
 
 Q 11 - Inside which HTML element do we put the JavaScript?
 
