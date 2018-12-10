@@ -20,7 +20,11 @@ var userInput = [];
 3. Check user input against answer sheet.
 
 3. Display Score.
+-show Score
+function showScore();
 
+-on click, show Score
+submitButton.addEventListener("click", showScore);
 
 ------------------------------------------------------------------------------------------*/
 // STEP 2: store Questions and Options in an Array.
@@ -145,25 +149,23 @@ var jsTrivia = [
     D: "unshift()"
   },
   correctAnswer: "B"
-},
+}
 ];
 
-//variables for retrieving and storing id's: trivia, submit and results.
 var triviaContainer = document.getElementById('trivia').;
 var resultsContainer = document.getElementById('submit').;
 var submitButton = document.getElementById('results').;
 
+function displayTrivia() {
+  //store html display in Array
+  var output = [];
+  //for each question.
+  jsTrivia.forEach((currentQuestion, questionNumber) =>
+{
+  //store options in an Array.
+  var options = [];
 
-  function displayTrivia() {
-
-    var showQuestions = [];
-    //for each question.
-    jsTrivia.forEach((currentQuestion, questionNumber) => {
-    //store options in an Array.
-    var options = [];
-    //for each available answer.
-    for (var letter in currentQuestion.options) {
-      //store options in checkboxes.
+  //store options in radio buttons.
       options.push(
 
         `<label class="radio-inline">
@@ -173,19 +175,33 @@ var submitButton = document.getElementById('results').;
         </label>`
       );
     }
-      showQuestions.push(
+      output.push(
         `<div class="question"> ${currentQuestion.question} </div>
-        <div class="answers"> ${options.join("")} </div>`
+        <div class="options"> ${options.join("")} </div>`
       );
+
     });
 
-    //combine list and display on html.
-    triviaContainer.innerHTML = showQuestions.join("");
+    //combine list and display on HTML.
+    triviaContainer.innerHTML = output.join("");
   };
 
-//call on function to display.
+  //call on function to display on HTML.
+  displayTrivia();
+
+
 
   //End Function for displaying Trivia on html.
+
+  $(document).ready(function() {
+    $("h1").click(function() {
+      alert("This is a header.");
+    });
+  });
+
+  //variables for retrieving and storing id's: trivia, submit and results.
+
+
 
 
   // <div id="trivia" class="hs-line-8 no-transp font-alt mb-40 mb-xs-20">
