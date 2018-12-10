@@ -1,152 +1,126 @@
 //Store questions and answers in an array
+//var py: for Python and var ruby: for Ruby --- for future improvements.
 
-const trivia = []
-
+var jsTrivia = [
+// Q - 1
 {
-  trivia: "Who is the strongest?",
+  trivia: "Which of the following is correct about features of JavaScript?",
   answers: {
     A: "JavaScript is a lightweight, interpreted programming language.",
     B: "JavaScript is designed for creating network-centric applications.",
-    C: "JavaScript is complementary to and integrated with Java."
+    C: "JavaScript is complementary to and integrated with Java.",
     D: "All of the above."
   },
   correctAnswer: "D"
 },
 
+// Q - 2
 {
   trivia: "Which of the following is the correct syntax to print a page using JavaScript?",
   answers: {
     A: "window.print();",
     B: "browser.print();",
-    C: "navigator.print();"
+    C: "navigator.print();",
     D: "document.print();"
+  },
+  correctAnswer: "A"
+},
+
+// Q - 3
+{
+  trivia: "Which built-in method calls a function for each element in the array?",
+  answers: {
+    A: "while()",
+    B: "loop()",
+    C: "forEach()",
+    D: "None of the above."
+  },
+  correctAnswer: "C"
+},
+
+// Q - 4
+{
+  trivia: "Which built-in method calls a function for each element in the array?",
+  answers: {
+    A: "toUpperCase()",
+    B: "toUpper(),
+    C: "changeCase(case)",
+    D: "None of the above."
+  },
+  correctAnswer: "A"
+},
+
+// Q - 5
+{
+  trivia: " Which of the following function of String object combines the text of two strings and returns a new string?",
+  answers: {
+    A: "add()",
+    B: "merge()",
+    C: "concat()",
+    D: "append()"
+  },
+  correctAnswer: "C"
+},
+
+// Q - 6
+{
+  trivia: "Which of the following function of String object splits a String object into an array of strings by separating the string into substrings?",
+  answers: {
+    A: "slice()",
+    B: "merge()",
+    C: "replace()",
+    D: "search()"
+  },
+  correctAnswer: "B"
+},
+
+// Q - 7
+{
+  trivia: "Which of the following function of String object returns the primitive value of the specified object.",
+  answers: {
+    A: "toLocaleUpperCase()",
+    B: "toUpperCase(),
+    C: "toString()",
+    D: "valueOf()"
   },
   correctAnswer: "D"
 },
 
+// Q - 8
+{
+  trivia: "Which of the following function of String object causes a string to be displayed in fixed-pitch font as if it were in a <tt> tag?",
+  answers: {
+    A: "fixed()",
+    B: "big(),
+    C: "blink()",
+    D: "bold()"
+  },
+  correctAnswer: "A"
+},
 
-  Q 2 - Which of the following is the correct syntax to print a page using JavaScript?
+// Q - 9
+{
+  trivia: "Which of the following function of Array object creates a new array with the results of calling a provided function on every element in this array?",
+  answers: {
+    A: "push()",
+    B: "join(),
+    C: "pop()",
+    D: "map()"
+  },
+  correctAnswer: "D"
+},
 
-  A - window.print();
+// Q - 10
+{
+  trivia: "Which of the following function of Array object sorts the elements of an array?",
+  answers: {
+    A: "toSource()",
+    B: "sort()",
+    C: "toString()",
+    D: "unshift()"
+  },
+  correctAnswer: "B"
+},
+];
 
-  B - browser.print();
-
-  C - navigator.print();
-
-  D - document.print();
-
-  Answer : A
-  Explanation
-  window.print(); is the correct option.
-
-  Q 3 - Which built-in method calls a function for each element in the array?
-
-  A - while()
-
-  B - loop()
-
-  C - forEach()
-
-  D - None of the above.
-
-  Answer : C
-  Explanation
-  forEach() method calls a function for each element in the array.
-
-  Q 4 - Which built-in method returns the calling string value converted to upper case?
-
-  A - toUpperCase()
-
-  B - toUpper()
-
-  C - changeCase(case)
-
-  D - None of the above.
-
-  Answer : A
-  Explanation
-  toUpperCase() method returns the calling string value converted to upper case.
-
-  Q 5 - Which of the following function of String object combines the text of two strings and returns a new string?
-
-  A - add()
-
-  B - merge()
-
-  C - concat()
-
-  D - append()
-
-  Answer : C
-  Explanation
-  concat() − Combines the text of two strings and returns a new string.
-
-  Q 6 - Which of the following function of String object splits a String object into an array of strings by separating the string into substrings?
-
-  A - slice()
-
-  B - split()
-
-  C - replace()
-
-  D - search()
-
-  Answer : B
-  Explanation
-  split() − Splits a String object into an array of strings by separating the string into substrings.
-
-  Q 7 - Which of the following function of String object returns the primitive value of the specified object.
-
-  A - toLocaleUpperCase()
-
-  B - toUpperCase()
-
-  C - toString()
-
-  D - valueOf()
-
-  Answer : D
-  Explanation
-  valueOf() − Returns the primitive value of the specified object.
-
-  Q 8 - Which of the following function of String object causes a string to be displayed in fixed-pitch font as if it were in a <tt> tag?
-
-  A - fixed()
-
-  B - big()
-
-  C - blink()
-
-  D - bold()
-
-  Answer : A
-  Explanation
-  fixed() − Causes a string to be displayed in fixed-pitch font as if it were in a <tt> tag.
-
-  Q 9 - Which of the following function of Array object creates a new array with the results of calling a provided function on every element in this array?
-
-  A - push()
-
-  B - join()
-
-  C - pop()
-
-  D - map()
-
-  Answer : D
-  Explanation
-  map() − Creates a new array with the results of calling a provided function on every element in this array.
-
-  Q 10 - Which of the following function of Array object sorts the elements of an array?
-
-  A - toSource()
-
-  B - sort()
-
-  C - toString()
-
-  D - unshift()
-
-  Answer : B
-  Explanation
-  sort() − Sorts the elements of an array.
+//Store questions and answers in an array

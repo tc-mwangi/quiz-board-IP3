@@ -271,3 +271,11 @@ Q 20 - How does a WHILE loop start?
  D
  Marks:
  It looks like you're in trouble.
+
+
+                       <input type="checkbox" name="name" id="name" class="input-md form-control" placeholder="Name" maxlength="100">
+
+                       <label>
+                           <input type="checkbox" id="checkA" value="option1">A JavaScript is a lightweight, interpreted programming language.
+
+                       </label>
