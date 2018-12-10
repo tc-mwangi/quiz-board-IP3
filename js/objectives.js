@@ -40,7 +40,8 @@ var jsTrivia = [
     C: "JavaScript is complementary to and integrated with Java.",
     D: "All of the above."
   },
-  correctAnswer: "D"
+  correctAnswer: "D",
+  explanation: "All of the above options are correct."
 },
 
 // Q - 2
@@ -52,7 +53,8 @@ var jsTrivia = [
     C: "navigator.print();",
     D: "document.print();"
   },
-  correctAnswer: "A"
+  correctAnswer: "A",
+  explanation: "window.print(); is the correct option."
 },
 
 // Q - 3
@@ -64,7 +66,8 @@ var jsTrivia = [
     C: "forEach()",
     D: "None of the above."
   },
-  correctAnswer: "C"
+  correctAnswer: "C",
+  explanation: "forEach() method calls a function for each element in the array."
 },
 
 // Q - 4
@@ -76,7 +79,8 @@ var jsTrivia = [
     C: "changeCase(case)",
     D: "None of the above."
   },
-  correctAnswer: "A"
+  correctAnswer: "A",
+  explanation: "toUpperCase() method returns the calling string value converted to upper case."
 },
 
 // Q - 5
@@ -88,7 +92,8 @@ var jsTrivia = [
     C: "concat()",
     D: "append()"
   },
-  correctAnswer: "C"
+  correctAnswer: "C",
+  explanation: "concat() − Combines the text of two strings and returns a new string."
 },
 
 // Q - 6
@@ -100,7 +105,8 @@ var jsTrivia = [
     C: "replace()",
     D: "search()"
   },
-  correctAnswer: "B"
+  correctAnswer: "B",
+  explanation: "split() − Splits a String object into an array of strings by separating the string into substrings."
 },
 
 // Q - 7
@@ -112,7 +118,8 @@ var jsTrivia = [
     C: "toString()",
     D: "valueOf()"
   },
-  correctAnswer: "D"
+  correctAnswer: "D",
+  explanation: "valueOf() − Returns the primitive value of the specified object."
 },
 
 // Q - 8
@@ -124,7 +131,8 @@ var jsTrivia = [
     C: "blink()",
     D: "bold()"
   },
-  correctAnswer: "A"
+  correctAnswer: "A",
+  explanation: "fixed() − Causes a string to be displayed in fixed-pitch font as if it were in a <tt> tag."
 },
 
 // Q - 9
@@ -136,7 +144,8 @@ var jsTrivia = [
     C: "pop()",
     D: "map()"
   },
-  correctAnswer: "D"
+  correctAnswer: "D",
+  explanation: "map() − Creates a new array with the results of calling a provided function on every element in this array."
 },
 
 // Q - 10
@@ -148,7 +157,9 @@ var jsTrivia = [
     C: "toString()",
     D: "unshift()"
   },
-  correctAnswer: "B"
+  correctAnswer: "B",
+  explanation: "Explanation
+  sort() − Sorts the elements of an array."
 }
 ];
 
@@ -189,15 +200,17 @@ function displayTrivia() {
   //call on function to display on HTML.
   displayTrivia();
 
-
-
   //End Function for displaying Trivia on html.
+/*---------------------------------------------------------------------------*/
+
+
 
   $(document).ready(function() {
     $("h1").click(function() {
       alert("This is a header.");
     });
   });
+
 
   //variables for retrieving and storing id's: trivia, submit and results.
 
