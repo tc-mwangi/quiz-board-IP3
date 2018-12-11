@@ -66,78 +66,78 @@ var jsTrivia = [
       D: "None of the above."
     },
     correctAnswer: "C"
-  // },
-  //
-  // // Q - 4
-  // {
-  //   question: "Which built-in method calls a function for each element in the array?",
-  //   options: {
-  //     A: "toUpperCase()",
-  //     B: "toUpper()",
-  //     C: "changeCase(case)",
-  //     D: "None of the above."
-  //   },
-  //   correctAnswer: "A"
-  // },
-  //
-  // // Q - 5
-  // {
-  //   question: " Which of the following function of String object combines the text of two strings and returns a new string?",
-  //   options: {
-  //     A: "add()",
-  //     B: "merge()",
-  //     C: "concat()",
-  //     D: "append()"
-  //   },
-  //   correctAnswer: "C"
-  // },
-  //
-  // // Q - 6
-  // {
-  //   question: "Which of the following function of String object splits a String object into an array of strings by separating the string into substrings?",
-  //   options: {
-  //     A: "slice()",
-  //     B: "merge()",
-  //     C: "replace()",
-  //     D: "search()"
-  //   },
-  //   correctAnswer: "B"
-  // },
-  //
-  // // Q - 7
-  // {
-  //   question: "Which of the following function of String object returns the primitive value of the specified object.",
-  //   options: {
-  //     A: "toLocaleUpperCase()",
-  //     B: "toUpperCase()",
-  //     C: "toString()",
-  //     D: "valueOf()"
-  //   },
-  //   correctAnswer: "D"
-  // },
-  //
-  // // Q - 8
-  // {
-  //   question: "Which of the following function of String object causes a string to be displayed in fixed-pitch font as if it were in a <tt> tag?",
-  //   options: {
-  //     A: "fixed()",
-  //     B: "big()",
-  //     C: "blink()",
-  //     D: "bold()"
-  //   },
-  //   correctAnswer: "A"
-  // },
-  //
+   },
+
+   // Q - 4
+   {
+     question: "Which built-in method calls a function for each element in the array?",
+     options: {
+       A: "toUpperCase()",
+       B: "toUpper()",
+       C: "changeCase(case)",
+       D: "None of the above."
+     },
+     correctAnswer: "A"
+   },
+
+   // Q - 5
+   {
+     question: " Which of the following function of String object combines the text of two strings and returns a new string?",
+     options: {
+       A: "add()",
+       B: "merge()",
+       C: "concat()",
+       D: "append()"
+     },
+     correctAnswer: "C"
+   },
+
+   // Q - 6
+   {
+     question: "Which of the following function of String object splits a String object into an array of strings by separating the string into substrings?",
+     options: {
+       A: "slice()",
+       B: "merge()",
+       C: "replace()",
+       D: "search()"
+     },
+     correctAnswer: "B"
+   },
+
+   // Q - 7
+   {
+     question: "Which of the following function of String object returns the primitive value of the specified object.",
+     options: {
+       A: "toLocaleUpperCase()",
+       B: "toUpperCase()",
+       C: "toString()",
+       D: "valueOf()"
+     },
+     correctAnswer: "D"
+   },
+
+   // Q - 8
+   {
+     question: "Which of the following function of String object causes a string to be displayed in fixed-pitch font as if it were in a <tt> tag?",
+     options: {
+       A: "fixed()",
+       B: "big()",
+       C: "blink()",
+       D: "bold()"
+     },
+     correctAnswer: "A"
+   },
+
   // // Q - 9
-  // {
-  //   question: "Which of the following function of Array object creates a new array with the results of calling a provided function on every element in this array?",
-  //   options: {
-  //     A: "push()",
-  //     B: "join()",
-  //     C: "pop()",
-  //     D: "map()"
-  //   },
-  //   correctAnswer: "D"
+   {
+     question: "Which of the following function of Array object creates a new array with the results of calling a provided function on every element in this array?",
+     options: {
+       A: "push()",
+       B: "join()",
+       C: "pop()",
+       D: "map()"
+     },
+     correctAnswer: "D"
   },
 
   // Q - 10
