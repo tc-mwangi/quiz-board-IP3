@@ -65,6 +65,7 @@ C - concat()
 
 D - append()
 
+
 Answer : C
 Explanation
 concat() − Combines the text of two strings and returns a new string.
