@@ -8,24 +8,26 @@ $(document).ready(function() {
   });
 });- passed
 
+//Questions and Options in an Array.
+//var pyTrivia: for Python and var triviaRuby: for Ruby --- for future extended features.
+-----------------------------------------------------------------
 2. Define Master Function to execute program
 (fuction() {
 
 })();
 
-
 3. store Q and Options and correct answers in a variable
 var questions = [{question, choices,correctAnswer}];
 
-3. call on function to display question and options
-var storeTrivia = function();
+4. call on function to display question and options
+var showNext();
 
-3. Gather input from user and store in an Array.
-var showNext = [];
+5. Gather input from user and store in an Array.
+var userInput = [];
 
-3. Check user input against answer sheet.
+6. Check user input against answer sheet.
 
-3. Display Score.
+7. Display Score.
 -show Score
 function showScore();
 
@@ -33,9 +35,6 @@ function showScore();
 submitButton.addEventListener("click", showScore);
 
 ------------------------------------------------------------------------------------------*/
-// STEP 2: store Questions and Options in an Array.
-//var pyTrivia: for Python and var triviaRuby: for Ruby --- for future extended features.
-
 
 (function() {
   var questions = [{
@@ -89,7 +88,7 @@ submitButton.addEventListener("click", showScore);
   var userInput = []; //Array to store user Input
   var quiz = $('#quiz'); //jQuery selector
 
-  // display question
+  // display q and a
   showNext();
 
   // Click handler for the 'next' button
@@ -111,7 +110,7 @@ submitButton.addEventListener("click", showScore);
     }
   });
 
-  // Click handler for the 'prev' button
+  // Previous button
   $('#prev').on('click', function (e) {
     e.preventDefault();
 
@@ -123,7 +122,7 @@ submitButton.addEventListener("click", showScore);
     showNext();
   });
 
-  // Click handler for the 'Start Over' button
+  // Start Button
   $('#start').on('click', function (e) {
     e.preventDefault();
 
@@ -136,7 +135,7 @@ submitButton.addEventListener("click", showScore);
     $('#start').hide();
   });
 
-  // Animates buttons on hover
+  // Hover animations
   $('.button').on('mouseenter', function () {
     $(this).addClass('active');
   });
@@ -163,7 +162,7 @@ submitButton.addEventListener("click", showScore);
     return qElement;
   }
 
-  // Creates a list of the answer choices as radio inputs
+  // List of options in raio buttons
   function createRadios(index) {
     var radioList = $('<ul>');
     var item;
@@ -195,7 +194,7 @@ submitButton.addEventListener("click", showScore);
           $('input[value='+userInput[quizCount]+']').prop('checked', true);
         }
 
-        // Controls display of 'prev' button
+        // show and hide
         if(quizCount === 1){
           $('#prev').show();
         } else if(quizCount === 0){
@@ -213,7 +212,7 @@ submitButton.addEventListener("click", showScore);
     });
   }
 
-  // Display Score abd
+  // Display Score 
   function displayScore() {
     var score = $('<p>',{id: 'question'});
 
