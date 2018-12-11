@@ -8,8 +8,14 @@ $(document).ready(function() {
   });
 });- passed
 
-2. store Q and A in Array.
-var jsTrivia = [];
+2. Define Master Function to execute program
+(fuction() {
+
+})();
+
+
+2. store Q and Options and correct answers in a variable
+var questions = [{question, choices,correctAnswer}];
 
 3. call on function to display questions and options
 var storeTrivia = function();
@@ -31,212 +37,195 @@ submitButton.addEventListener("click", showScore);
 //var pyTrivia: for Python and var triviaRuby: for Ruby --- for future extended features.
 
 
-var jsTrivia = [
-// Q - 1
-  {
+(function() {
+  var questions = [{
     question: "Which of the following is correct about features of JavaScript?",
-    options: {
-      A: "JavaScript is a lightweight, interpreted programming language.",
-      B: "JavaScript is designed for creating network-centric applications.",
-      C: "JavaScript is complementary to and integrated with Java.",
-      D: "All of the above."
-    },
-    correctAnswer: "D"
-  },
-
-  // Q - 2
-  {
+    choices: [
+      "JavaScript is a lightweight, interpreted programming language.",
+      "JavaScript is designed for creating network-centric applications.",
+      "JavaScript is complementary to and integrated with Java.",
+      "All of the above."
+    ],
+    correctAnswer: 10
+  }, {
     question: "Which of the following is the correct syntax to print a page using JavaScript?",
-    options: {
-      A: "window.print();",
-      B: "browser.print();",
-      C: "navigator.print();",
-      D: "document.print();"
-    },
-    correctAnswer: "A"
-  },
-
-  // Q - 3
-  {
+    choices: [
+      "window.print();",
+      "browser.print();",
+      "navigator.print();",
+      "document.print();"
+    ],
+    correctAnswer: 18
+  }, {
     question: "Which built-in method calls a function for each element in the array?",
-    options: {
-      A: "while()",
-      B: "loop()",
-      C: "forEach()",
-      D: "None of the above."
-    },
-    correctAnswer: "C"
-   },
+    choices: [
+      "while()",
+      "loop()",
+      "forEach()",
+      "None of the above."
+    ],
+    correctAnswer: 72
+  }, {
+    question: "Which built-in method calls a function for each element in the array?",
+    choices: [
+      "toUpperCase()",
+      "toUpper()",
+      "changeCase(case)",
+      "None of the above."
+    ],
+    correctAnswer: 7
+  }, {
+    question: "Which of the following function of String object combines the text of two strings and returns a new string?",
+    choices: [
+      "add()",
+      "merge()",
+      "concat()",
+      "append()"
+    ],
+    correctAnswer: 64
+  }];
 
-   // Q - 4
-   {
-     question: "Which built-in method calls a function for each element in the array?",
-     options: {
-       A: "toUpperCase()",
-       B: "toUpper()",
-       C: "changeCase(case)",
-       D: "None of the above."
-     },
-     correctAnswer: "A"
-   },
+  var questionCounter = 0; //Count question number
+  var selections = []; //Array to store user Input
+  var quiz = $('#quiz'); //jQuery selector
 
-   // Q - 5
-   {
-     question: " Which of the following function of String object combines the text of two strings and returns a new string?",
-     options: {
-       A: "add()",
-       B: "merge()",
-       C: "concat()",
-       D: "append()"
-     },
-     correctAnswer: "C"
-   },
+  // display question
+  displayNext();
 
-   // Q - 6
-   {
-     question: "Which of the following function of String object splits a String object into an array of strings by separating the string into substrings?",
-     options: {
-       A: "slice()",
-       B: "merge()",
-       C: "replace()",
-       D: "search()"
-     },
-     correctAnswer: "B"
-   },
+  // Click handler for the 'next' button
+  $('#next').on('click', function (e) {
+    e.preventDefault();
 
-   // Q - 7
-   {
-     question: "Which of the following function of String object returns the primitive value of the specified object.",
-     options: {
-       A: "toLocaleUpperCase()",
-       B: "toUpperCase()",
-       C: "toString()",
-       D: "valueOf()"
-     },
-     correctAnswer: "D"
-   },
+    // Suspend click listener during fade animation
+    if(quiz.is(':animated')) {
+      return false;
+    }
+    choose();
 
-   // Q - 8
-   {
-     question: "Which of the following function of String object causes a string to be displayed in fixed-pitch font as if it were in a <tt> tag?",
-     options: {
-       A: "fixed()",
-       B: "big()",
-       C: "blink()",
-       D: "bold()"
-     },
-     correctAnswer: "A"
-   },
+    // If no user selection, progress is stopped
+    if (isNaN(selections[questionCounter])) {
+      alert('Please make a selection!');
+    } else {
+      questionCounter++;
+      displayNext();
+    }
+  });
 
-  // // Q - 9
-   {
-     question: "Which of the following function of Array object creates a new array with the results of calling a provided function on every element in this array?",
-     options: {
-       A: "push()",
-       B: "join()",
-       C: "pop()",
-       D: "map()"
-     },
-     correctAnswer: "D"
-  },
+  // Click handler for the 'prev' button
+  $('#prev').on('click', function (e) {
+    e.preventDefault();
 
-  // Q - 10
-  {
-    question: "Which of the following function of Array object sorts the elements of an array?",
-    options: {
-      A: "toSource()",
-      B: "sort()",
-      C: "toString()",
-      D: "unshift()"
-    },
-    correctAnswer: "B"
+    if(quiz.is(':animated')) {
+      return false;
+    }
+    choose();
+    questionCounter--;
+    displayNext();
+  });
+
+  // Click handler for the 'Start Over' button
+  $('#start').on('click', function (e) {
+    e.preventDefault();
+
+    if(quiz.is(':animated')) {
+      return false;
+    }
+    questionCounter = 0;
+    selections = [];
+    displayNext();
+    $('#start').hide();
+  });
+
+  // Animates buttons on hover
+  $('.button').on('mouseenter', function () {
+    $(this).addClass('active');
+  });
+  $('.button').on('mouseleave', function () {
+    $(this).removeClass('active');
+  });
+
+  // Creates and returns the div that contains the questions and
+  // the answer selections
+  function createQuestionElement(index) {
+    var qElement = $('<div>', {
+      id: 'question'
+    });
+
+    var header = $('<h2>Question ' + (index + 1) + ':</h2>');
+    qElement.append(header);
+
+    var question = $('<p>').append(questions[index].question);
+    qElement.append(question);
+
+    var radioButtons = createRadios(index);
+    qElement.append(radioButtons);
+
+    return qElement;
   }
-];
 
-var storeTrivia = document.getElementById('quiz');
-var storeResults = document.getElementById('results');
-var resultsButton = document.getElementById('submit');
+  // Creates a list of the answer choices as radio inputs
+  function createRadios(index) {
+    var radioList = $('<ul>');
+    var item;
+    var input = '';
+    for (var i = 0; i < questions[index].choices.length; i++) {
+      item = $('<li>');
+      input = '<input type="radio" name="answer" value=' + i + ' />';
+      input += questions[index].choices[i];
+      item.append(input);
+      radioList.append(item);
+    }
+    return radioList;
+  }
 
-generateQuiz(jsTrivia, storeTrivia, storeResults, resultsButton);
+  // Reads the user selection and pushes the value to an array
+  function choose() {
+    selections[questionCounter] = +$('input[name="answer"]:checked').val();
+  }
 
-function generateQuiz(questions, storeTrivia, storeResults, resultsButton){
+  // Displays next requested element
+  function displayNext() {
+    quiz.fadeOut(function() {
+      $('#question').remove();
 
-	function showQuestions(questions, storeTrivia){
-		// we'll need a place to store the output and the answer choices
-		var output = [];
-		var options;
+      if(questionCounter < questions.length){
+        var nextQuestion = createQuestionElement(questionCounter);
+        quiz.append(nextQuestion).fadeIn();
+        if (!(isNaN(selections[questionCounter]))) {
+          $('input[value='+selections[questionCounter]+']').prop('checked', true);
+        }
 
-		// for each question...
-		for(var i=0; i<questions.length; i++){
+        // Controls display of 'prev' button
+        if(questionCounter === 1){
+          $('#prev').show();
+        } else if(questionCounter === 0){
 
-			// first reset the list of options
-			options = [];
+          $('#prev').hide();
+          $('#next').show();
+        }
+      }else {
+        var scoreElem = displayScore();
+        quiz.append(scoreElem).fadeIn();
+        $('#next').hide();
+        $('#prev').hide();
+        $('#start').show();
+      }
+    });
+  }
 
-			// for each available answer...
-			for(letter in questions[i].options){
+  // Display Score abd
+  function displayScore() {
+    var score = $('<p>',{id: 'question'});
 
-				// ...add an html radio button
-				options.push(
-					'<label class=radio-inline>'
-						+ '<input type="radio" name="question'+i+'" value="'+letter+'">'
-						+ letter + ': '
-						+ questions[i].options[letter]
-					+ '</label>'
-				);
-			}
+    var numCorrect = 0;
+    for (var i = 0; i < selections.length; i++) {
+      if (selections[i] === questions[i].correctAnswer) {
+        numCorrect++;
+      }
+    }
 
-			// add this question and its options to the output
-			output.push(
-				'<div class="question">' + questions[i].question + '</div>'
-				+ '<div class="options">' + options.join('') + '</div>'
-			);
-		}
-
-		// finally combine our output list into one string of html and put it on the page
-		storeTrivia.innerHTML = output.join('');
-	}
-
-
-	function showResults(questions, storeTrivia, storeResults){
-
-		// gather answer containers from our quiz
-		var answerContainers = storeTrivia.querySelectorAll('.options');
-
-		// keep track of user's options
-		var userAnswer = '';
-		var numCorrect = 0;
-
-		// for each question...
-		for(var i=0; i<questions.length; i++){
-
-			// find selected answer
-			userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
-
-			// if answer is correct
-			if(userAnswer===questions[i].correctAnswer){
-				// add to the number of correct options
-				numCorrect++;
-
-				// color the options green
-				answerContainers[i].style.color = 'lightgreen';
-			}
-			// if answer is wrong or blank
-			else{
-				// color the options red
-				answerContainers[i].style.color = 'red';
-			}
-		}
-
-		// show number of correct options out of total
-		storeResults.innerHTML = numCorrect + ' out of ' + questions.length;
-	}
-
-	// show questions right away
-	showQuestions(questions, storeTrivia);
-
-	// on submit, show results
-	resultsButton.onclick = function(){
-		showResults(questions, storeTrivia, storeResults);
-	}
-
-}
+    score.append('score ' + numCorrect + ' questions out of ' +
+                 questions.length + ' right!!!');
+    return score;
+  }
+})();
