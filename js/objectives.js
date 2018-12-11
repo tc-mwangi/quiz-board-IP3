@@ -45,7 +45,7 @@ submitButton.addEventListener("click", showScore);
       "JavaScript is complementary to and integrated with Java.",
       "All of the above."
     ],
-    correctAnswer: 10
+    correctAnswer: 3
   }, {
     question: "Which of the following is the correct syntax to print a page using JavaScript?",
     choices: [
@@ -54,7 +54,7 @@ submitButton.addEventListener("click", showScore);
       "navigator.print();",
       "document.print();"
     ],
-    correctAnswer: 18
+    correctAnswer: 0
   }, {
     question: "Which built-in method calls a function for each element in the array?",
     choices: [
@@ -63,7 +63,7 @@ submitButton.addEventListener("click", showScore);
       "forEach()",
       "None of the above."
     ],
-    correctAnswer: 72
+    correctAnswer: 1
   }, {
     question: "Which built-in method calls a function for each element in the array?",
     choices: [
@@ -72,7 +72,7 @@ submitButton.addEventListener("click", showScore);
       "changeCase(case)",
       "None of the above."
     ],
-    correctAnswer: 7
+    correctAnswer: 0
   }, {
     question: "Which of the following function of String object combines the text of two strings and returns a new string?",
     choices: [
@@ -81,7 +81,7 @@ submitButton.addEventListener("click", showScore);
       "concat()",
       "append()"
     ],
-    correctAnswer: 64
+    correctAnswer: 2
   }];
 
   var quizCount = 0; //Count question number
@@ -212,7 +212,7 @@ submitButton.addEventListener("click", showScore);
     });
   }
 
-  // Display Score 
+  // Display Score
   function displayScore() {
     var score = $('<p>',{id: 'question'});
 
