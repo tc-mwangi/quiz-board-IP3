@@ -14,14 +14,14 @@ $(document).ready(function() {
 })();
 
 
-2. store Q and Options and correct answers in a variable
+3. store Q and Options and correct answers in a variable
 var questions = [{question, choices,correctAnswer}];
 
-3. call on function to display questions and options
+3. call on function to display question and options
 var storeTrivia = function();
 
 3. Gather input from user and store in an Array.
-var userInput = [];
+var showNext = [];
 
 3. Check user input against answer sheet.
 
@@ -85,12 +85,12 @@ submitButton.addEventListener("click", showScore);
     correctAnswer: 64
   }];
 
-  var questionCounter = 0; //Count question number
-  var selections = []; //Array to store user Input
+  var quizCount = 0; //Count question number
+  var userInput = []; //Array to store user Input
   var quiz = $('#quiz'); //jQuery selector
 
   // display question
-  displayNext();
+  showNext();
 
   // Click handler for the 'next' button
   $('#next').on('click', function (e) {
@@ -102,12 +102,12 @@ submitButton.addEventListener("click", showScore);
     }
     choose();
 
-    // If no user selection, progress is stopped
-    if (isNaN(selections[questionCounter])) {
-      alert('Please make a selection!');
+    // If the user doen't pick an answer:
+    if (isNaN(userInput[quizCount])) {
+      alert('Please pick an option!');
     } else {
-      questionCounter++;
-      displayNext();
+      quizCount++;
+      showNext();
     }
   });
 
@@ -119,8 +119,8 @@ submitButton.addEventListener("click", showScore);
       return false;
     }
     choose();
-    questionCounter--;
-    displayNext();
+    quizCount--;
+    showNext();
   });
 
   // Click handler for the 'Start Over' button
@@ -130,9 +130,9 @@ submitButton.addEventListener("click", showScore);
     if(quiz.is(':animated')) {
       return false;
     }
-    questionCounter = 0;
-    selections = [];
-    displayNext();
+    quizCount = 0;
+    userInput = [];
+    showNext();
     $('#start').hide();
   });
 
@@ -145,7 +145,7 @@ submitButton.addEventListener("click", showScore);
   });
 
   // Creates and returns the div that contains the questions and
-  // the answer selections
+  // the answer userInput
   function createQuestionElement(index) {
     var qElement = $('<div>', {
       id: 'question'
@@ -180,25 +180,25 @@ submitButton.addEventListener("click", showScore);
 
   // Reads the user selection and pushes the value to an array
   function choose() {
-    selections[questionCounter] = +$('input[name="answer"]:checked').val();
+    userInput[quizCount] = +$('input[name="answer"]:checked').val();
   }
 
   // Displays next requested element
-  function displayNext() {
+  function showNext() {
     quiz.fadeOut(function() {
       $('#question').remove();
 
-      if(questionCounter < questions.length){
-        var nextQuestion = createQuestionElement(questionCounter);
+      if(quizCount < questions.length){
+        var nextQuestion = createQuestionElement(quizCount);
         quiz.append(nextQuestion).fadeIn();
-        if (!(isNaN(selections[questionCounter]))) {
-          $('input[value='+selections[questionCounter]+']').prop('checked', true);
+        if (!(isNaN(userInput[quizCount]))) {
+          $('input[value='+userInput[quizCount]+']').prop('checked', true);
         }
 
         // Controls display of 'prev' button
-        if(questionCounter === 1){
+        if(quizCount === 1){
           $('#prev').show();
-        } else if(questionCounter === 0){
+        } else if(quizCount === 0){
 
           $('#prev').hide();
           $('#next').show();
@@ -218,8 +218,8 @@ submitButton.addEventListener("click", showScore);
     var score = $('<p>',{id: 'question'});
 
     var numCorrect = 0;
-    for (var i = 0; i < selections.length; i++) {
-      if (selections[i] === questions[i].correctAnswer) {
+    for (var i = 0; i < userInput.length; i++) {
+      if (userInput[i] === questions[i].correctAnswer) {
         numCorrect++;
       }
     }
