@@ -41,10 +41,10 @@ submitButton.addEventListener("click", showScore);
     //question 01
     question: "Which of the following is correct about features of JavaScript?",
     choices: [
-      "JavaScript is a lightweight, interpreted programming language.",
-      "JavaScript is designed for creating network-centric applications.",
-      "JavaScript is complementary to and integrated with Java.",
-      "All of the above."
+      " JavaScript is a lightweight, interpreted programming language.",
+      " JavaScript is designed for creating network-centric applications.",
+      " JavaScript is complementary to and integrated with Java.",
+      " All of the above."
     ],
     correctAnswer: 3
     // Explanation
@@ -53,10 +53,10 @@ submitButton.addEventListener("click", showScore);
     //question 02
     question: "Which of the following is the correct syntax to print a page using JavaScript?",
     choices: [
-      "window.print();",
-      "browser.print();",
-      "navigator.print();",
-      "document.print();"
+      " window.print();",
+      " browser.print();",
+      " navigator.print();",
+      " document.print();"
     ],
     correctAnswer: 0
     // Explanation
@@ -65,10 +65,10 @@ submitButton.addEventListener("click", showScore);
     //question 03
     question: "Which built-in method calls a function for each element in the array?",
     choices: [
-      "while()",
-      "loop()",
-      "forEach()",
-      "None of the above."
+      " while()",
+      " loop()",
+      " forEach()",
+      " None of the above."
     ],
     correctAnswer: 2
     // Explanation
@@ -77,10 +77,10 @@ submitButton.addEventListener("click", showScore);
     //question 04
     question: "Which built-in method returns the calling string value converted to upper case?",
     choices: [
-      "toUpperCase()",
-      "toUpper()",
-      "changeCase(case)",
-      "None of the above."
+      " toUpperCase()",
+      " toUpper()",
+      " changeCase(case)",
+      " None of the above."
     ],
     correctAnswer: 0
     // Explanation
@@ -89,10 +89,10 @@ submitButton.addEventListener("click", showScore);
     //question 05
     question: "Which of the following function of String object combines the text of two strings and returns a new string?",
     choices: [
-      "add()",
-      "merge()",
-      "concat()",
-      "append()"
+      " add()",
+      " merge()",
+      " concat()",
+      " append()"
     ],
     correctAnswer: 2
     // Explanation
@@ -152,6 +152,21 @@ submitButton.addEventListener("click", showScore);
   });
 
   // Start Button
+  $('#start').on('click', function (e) {
+    e.preventDefault();
+
+    if(quiz.is(':animated')) {
+      return false;
+    }
+    quizCount = 0;
+    userInput = [];
+    showNext();
+    showAll();
+
+    $('#start').hide();
+  });
+
+  // Review Button
   $('#start').on('click', function (e) {
     e.preventDefault();
 
