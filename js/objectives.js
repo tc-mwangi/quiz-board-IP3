@@ -247,7 +247,7 @@ submitButton.addEventListener("click", showScore);
         }
 
 
-      }else {
+      } else {
         var scoreElem = displayScore();
         quiz.append(scoreElem).fadeIn();
         $('#next').hide();
@@ -272,8 +272,23 @@ submitButton.addEventListener("click", showScore);
 
     var percentScore = ((numCorrect/questions.length)*100)
 
-    score.append('Score: ' + numCorrect + '/' +
-                 questions.length + '<br>' +' Percentage: '  + percentScore +'%');
+    if (percentScore === 100) {
+      score.append('Perfect Score!!! : ' + numCorrect + '/' +
+                   questions.length + '<br>' +' Percentage: '  + percentScore
+                   +'%');
+      return score;
+
+  } else if (percentScore === 0) {
+    score.append('Poor Score: ' + numCorrect + '/' +
+                 questions.length + '<br>' +' Percentage: '  + percentScore
+                 +'%');
     return score;
+  } else {
+    score.append('Score : ' + numCorrect + '/' +
+                 questions.length + '<br>' +' Percentage: '  + percentScore
+                 +'%');
+    return score;
+  }
+
   }
 })();
