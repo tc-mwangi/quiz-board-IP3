@@ -19,7 +19,7 @@ $(document).ready(function() {
 3. store Q and Options and correct answers in a variable
 var questions = [{question, choices,correctAnswer}];
 
-4. call on function to display question and options
+4. call on function to display the next set
 var showNext();
 
 5. Gather input from user and store in an Array.
@@ -38,6 +38,7 @@ submitButton.addEventListener("click", showScore);
 
 (function() {
   var questions = [{
+    //question 01
     question: "Which of the following is correct about features of JavaScript?",
     choices: [
       "JavaScript is a lightweight, interpreted programming language.",
@@ -46,7 +47,10 @@ submitButton.addEventListener("click", showScore);
       "All of the above."
     ],
     correctAnswer: 3
+    // Explanation
+    // All of the above options are correct.
   }, {
+    //question 02
     question: "Which of the following is the correct syntax to print a page using JavaScript?",
     choices: [
       "window.print();",
@@ -55,7 +59,10 @@ submitButton.addEventListener("click", showScore);
       "document.print();"
     ],
     correctAnswer: 0
+    // Explanation
+    // window.print(); is the correct option.
   }, {
+    //question 03
     question: "Which built-in method calls a function for each element in the array?",
     choices: [
       "while()",
@@ -63,9 +70,12 @@ submitButton.addEventListener("click", showScore);
       "forEach()",
       "None of the above."
     ],
-    correctAnswer: 1
+    correctAnswer: 2
+    // Explanation
+    // forEach() method calls a function for each element in the array.
   }, {
-    question: "Which built-in method calls a function for each element in the array?",
+    //question 04
+    question: "Which built-in method returns the calling string value converted to upper case?",
     choices: [
       "toUpperCase()",
       "toUpper()",
@@ -73,7 +83,10 @@ submitButton.addEventListener("click", showScore);
       "None of the above."
     ],
     correctAnswer: 0
+    // Explanation
+    // toUpperCase() method returns the calling string value converted to upper case.
   }, {
+    //question 05
     question: "Which of the following function of String object combines the text of two strings and returns a new string?",
     choices: [
       "add()",
@@ -82,6 +95,8 @@ submitButton.addEventListener("click", showScore);
       "append()"
     ],
     correctAnswer: 2
+    // Explanation
+    // concat() − Combines the text of two strings and returns a new string.
   }];
 
   var quizCount = 0; //Count question number
@@ -101,6 +116,7 @@ submitButton.addEventListener("click", showScore);
     }
     choose();
 
+    // Evaluate user's answers
     // If the user doen't pick an answer:
     if (isNaN(userInput[quizCount])) {
       alert('Please pick an option!');
@@ -132,15 +148,9 @@ submitButton.addEventListener("click", showScore);
     quizCount = 0;
     userInput = [];
     showNext();
-    $('#start').hide();
-  });
+    showAll();
 
-  // Hover animations
-  $('.button').on('mouseenter', function () {
-    $(this).addClass('active');
-  });
-  $('.button').on('mouseleave', function () {
-    $(this).removeClass('active');
+    $('#start').hide();
   });
 
   // Creates and returns the div that contains the questions and
@@ -177,7 +187,7 @@ submitButton.addEventListener("click", showScore);
     return radioList;
   }
 
-  // Reads the user selection and pushes the value to an array
+  // Read the user selection and pushes the value to an array
   function choose() {
     userInput[quizCount] = +$('input[name="answer"]:checked').val();
   }
@@ -194,20 +204,30 @@ submitButton.addEventListener("click", showScore);
           $('input[value='+userInput[quizCount]+']').prop('checked', true);
         }
 
-        // show and hide
+        // show and hide buttons
         if(quizCount === 1){
           $('#prev').show();
         } else if(quizCount === 0){
 
           $('#prev').hide();
+          $('#start').hide();
           $('#next').show();
+
+        } else if(quizCount === 4){
+
+          $('#prev').hide();
+          $('#next').show();
+          $('#reveal').hide();
+
         }
+
       }else {
         var scoreElem = displayScore();
         quiz.append(scoreElem).fadeIn();
         $('#next').hide();
         $('#prev').hide();
         $('#start').show();
+        $('#reveal').show();
       }
     });
   }
