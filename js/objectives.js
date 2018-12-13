@@ -117,6 +117,7 @@ submitButton.addEventListener("click", showScore);
     choose();
 
     // Evaluate user's answers
+
     // If the user doen't pick an answer:
     if (isNaN(userInput[quizCount])) {
       alert('Please pick an option!');
@@ -135,6 +136,18 @@ submitButton.addEventListener("click", showScore);
     }
     choose();
     quizCount--;
+    showNext();
+  });
+
+  // submit button
+  $('#submit').on('click', function (e) {
+    e.preventDefault();
+
+    if(quiz.is(':animated')) {
+      return false;
+    }
+    choose();
+    quizCount++;
     showNext();
   });
 
@@ -211,13 +224,16 @@ submitButton.addEventListener("click", showScore);
 
           $('#prev').hide();
           $('#start').hide();
+          $('#submit').hide()
+          $('#reveal').hide()
           $('#next').show();
 
         } else if(quizCount === 4){
 
-          $('#prev').hide();
-          $('#next').show();
+          $('#prev').show();
+          $('#next').hide();
           $('#reveal').hide();
+          $('#submit').show()
 
         }
 
