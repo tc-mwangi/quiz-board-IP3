@@ -18,7 +18,7 @@ Happy hackers is a learning platform designed to gauge mastery of basic programm
 
 ### Results Page
 
-![Image](https://github.com/tc-mwangi/quiz-board-IP3/blob/sandbox/images/screencapture-file-Users-WanjiruMwangi-Desktop-quiz-board-IP3-QandA-html-2018-12-11-08_25_24.png)
+![Image](https://github.com/tc-mwangi/quiz-board-IP3/blob/sandbox/images/screencapture-file-Users-WanjiruMwangi-Desktop-sandbox-quiz-board-IP3-QandA-html-2018-12-13-13_53_24.png)
 
 ## Instructions
 Please click on the Javascript button to go to JavaScript trivia. Other languages are being beta-tested.
