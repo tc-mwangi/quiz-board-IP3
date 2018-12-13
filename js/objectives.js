@@ -236,12 +236,23 @@ submitButton.addEventListener("click", showScore);
           $('#submit').show()
 
         }
+        else if(quizCount === 5){
+
+          $('#prev').show();
+          $('#next').hide();
+          $('#reveal').hide();
+          $('#start').hide();
+          $('#submit').hide()
+
+        }
+
 
       }else {
         var scoreElem = displayScore();
         quiz.append(scoreElem).fadeIn();
         $('#next').hide();
         $('#prev').hide();
+        $('#submit').hide();
         $('#start').show();
         $('#reveal').show();
       }
@@ -259,8 +270,10 @@ submitButton.addEventListener("click", showScore);
       }
     }
 
-    score.append('score ' + numCorrect + ' questions out of ' +
-                 questions.length + ' right!!!');
+    var percentScore = ((numCorrect/questions.length)*100)
+
+    score.append('Score: ' + numCorrect + '/' +
+                 questions.length + '<br>' +' Percentage: '  + percentScore +'%');
     return score;
   }
 })();
